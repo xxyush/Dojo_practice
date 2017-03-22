@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dojo-dialog-test</title>
+  <script>
+    dojoConfig= {
+        has: {
+            "dojo-firebug": true
+        },
+        parseOnLoad: false,
+        foo: "bar",
+        async: true,
+        packages:{
+            name:"demo",
+            location:"../common/myJS"
+        }
+    };
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+<script>
+// Require the registry, parser, Dialog, and wait for domReady
+require(["dijit/registry", "dojo/parser", "dojo/json", "dojo/_base/config", "dijit/Dialog", "dojo/domReady!"]
+, function(registry, parser, JSON, config) {
+    // Explicitly parse the page
+    parser.parse();
+    // Find the dialog
+    var dialog = registry.byId("dialog");
+    // Set the content equal to what dojo.config is
+    dialog.set("content", "<pre>" + JSON.stringify(config, null, "\t") + "```");
+    // Show the dialog
+    dialog.show();
+});
+</script>
+</head>
+<body>
+<div id="dialog" data-dojo-type="dijit/Dialog" data-dojo-props="title: 'dojoConfig / dojo/_base/config'">something shows</div>
+</body>
+</html>

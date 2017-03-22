@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dojo.define.module</title>
+	<script>
+		djConfig={
+			async:true,
+			baseUrl:"/common",
+			packages:[{name:"myJS",location:"../myJS"}]
+		}
+	</script>
+	 <!-- load Dojo -->
+  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+</head>
+
+<body>
+	<div id="greeting">hello</div>
+	
+   
+	<script>
+	require([
+		'myJS/myModule'
+		],
+		function(myModule){
+		myModule.setNewText("greeting","Hello,Dojo!!");
+		setTimeout(function(){
+			myModule.restoreText("greeting")
+		},5000);
+	});
+
+	
+</script>
+</body>
+</html>

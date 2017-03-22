@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dojo_event</title>
+</head>
+  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.12.1/dojo/dojo.js"></script>
+<script>
+/*test dojo event and dojo dom operation*/
+	dojo.ready(function(){
+		require(["dojo/dom"],function(){
+		var testDiv=dojo.byId("test");
+		testDiv.innerHTML="Hello Xuanxuan,enjoy your dojo's time";
+		var but=dojo.byId("testbut");
+		var ischange=true;
+		dojo.connect(but,"onclick",function(){
+			console.log("button is clicking");
+			
+			if(ischange){
+				this.value="hide";
+				ischange=false;
+				dojo.byId("text").innerHTML="button is clicking";
+			}else{
+				this.value="click me";
+				ischange=true;
+				dojo.byId("text").innerHTML="";
+			}
+			
+		});
+	});
+	})
+</script>
+<body>
+	<div id="test"></div>
+	<input type="button" value="Click me" id="testbut">
+	<div id="text"></div>
+</body>
+</html>

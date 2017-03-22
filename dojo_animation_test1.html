@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dojo.animation</title>
+	<script>
+		var dojoConfig={
+			async:true,
+			packages:[{
+				name:"myJS",
+				location:location.pathname.replace(/\/[^/]*$/, '') + 'myJS'
+			}]
+		}
+	</script>
+	 <!-- load Dojo -->
+  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+	<!-- <script type="text/javascript" src="/common/dojo/dojo.js"></script> -->
+</head>
+
+<body>
+	<div id="greeting">hello</div>
+	
+   
+	<script>
+
+	require([
+    'dojo/dom',
+    'dojo/fx',
+    'dojo/domReady!'
+], function (dom,fx) {
+    // The piece we had before...
+    var greeting = dom.byId('greeting');
+    greeting.innerHTML += ' from Dojo!';
+
+    // ...but now, with an animation!
+    fx.slideTo({
+    	node:greeting,
+    	top:100,
+    	left:500
+    }).play();
+});
+</script>
+</body>
+</html>

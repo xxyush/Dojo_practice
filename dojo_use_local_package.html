@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dojo_use_local_package</title>
+	<script>
+		djConfig={
+			async:true
+		}
+	</script>
+	<script type="text/javascript" src="../common/dojo-release-1.12.2/dojo/dojo.js"></script>
+	<script type="text/javascript" src="../myJS/test.js"></script>
+	<script>
+		testlog();
+		/*dojo.ready(function(){*/
+			
+		
+		/*})*/
+		require([
+    'dojo/dom',
+    'dojo/fx',
+    'dojo/domReady!'
+], function (dom,fx) {
+    // The piece we had before...
+    var greeting = dom.byId('greeting');
+    greeting.innerHTML += ' from Dojo!';
+
+    // ...but now, with an animation!
+    fx.slideTo({
+    	node:greeting,
+    	top:100,
+    	left:500
+    }).play();
+});
+			
+			
+	
+	</script>
+</head>
+<body>
+	<div id="greeting">Hello</div>
+	<script type="text/javascript">
+	/*不加dojo/domReady!,则必须将此段代码放于id为greeting的元素后面，待其加载完成再get元素*/
+		require(['dojo/dom'],function(dom){
+				var oDiv=dom.byId('greeting');
+				console.log(oDiv.innerHTML);
+			});
+	</script>
+</body>
+</html>

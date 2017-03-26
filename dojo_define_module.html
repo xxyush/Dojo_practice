@@ -4,15 +4,17 @@
 	<meta charset="UTF-8">
 	<title>dojo.define.module</title>
 	<script>
-		djConfig={
+		dojoConfig={
 			async:true,
-			baseUrl:"/common",
-			packages:[{name:"myJS",location:"../myJS"}]
+			baseUrl:"/myJS",
+			/*packages:[{name:"myJS",location:"../myJS"}]*/
+
 		}
 	</script>
 	 <!-- load Dojo -->
-  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-            data-dojo-config="async: true"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script> -->
+            <script type="text/javascript" src="../common/dojo-release-1.12.2/dojo/dojo.js"></script>
 </head>
 
 <body>

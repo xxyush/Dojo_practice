@@ -3,21 +3,7 @@
 <html>
 <head>
     <title>dojo-dialog-test</title>
-  <script>
-    dojoConfig= {
-        has: {
-            "dojo-firebug": true
-        },
-        parseOnLoad: false,
-        foo: "bar",
-        async: true,
-        packages:{
-            name:"demo",
-            location:"../common/myJS"
-        }
-    };
-</script>
-<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+<script src="../common/dojo-release-1.12.2/dojo/dojo.js"></script>
 <script>
 // Require the registry, parser, Dialog, and wait for domReady
 require(["dijit/registry", "dojo/parser", "dojo/json", "dojo/_base/config", "dijit/Dialog", "dojo/domReady!"]
@@ -34,6 +20,6 @@ require(["dijit/registry", "dojo/parser", "dojo/json", "dojo/_base/config", "dij
 </script>
 </head>
 <body>
-<div id="dialog" data-dojo-type="dijit/Dialog" data-dojo-props="title: 'dojoConfig / dojo/_base/config'">something shows</div>
+<div id="dialog" data-dojo-type="dijit/Dialog" data-dojo-props="title: 'dojoConfig / dojo/_base/config'">something will show</div>
 </body>
 </html>
